@@ -1,0 +1,207 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+
+
+
+
+
+
+
+.hidden {
+    display: none; /* Hide the menu */
+}
+
+/* Style for the visible menu */
+nav {
+    display: block; /* Show the menu */
+    background-color:  #333; /* Optional background */
+    padding: 10px; /* Optional padding */
+}
+
+/* Additional styles for better presentation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.login-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 0.5rem;
+}
+
+form input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.options label {
+    margin: 0;
+}
+
+.forgot-password {
+    text-decoration: none;
+    color: #004d99;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+button {
+    padding: 0.75rem;
+    background-color: #004d99;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #003d80;
+}
+
+p {
+    text-align: center;
+}
+
+p a {
+    color: #004d99;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        max-width: 90%; /* Increase width for tablets and smaller devices */
+        padding: 1.5rem; /* Adjust padding */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center; /* Center align items */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Adjust margin for vertical layout */
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 1rem; /* Further reduce padding for mobile */
+    }
+
+    form input {
+        padding: 0.5rem; /* Keep input padding consistent */
+    }
+
+    button {
+        padding: 0.5rem; /* Adjust button padding for smaller screens */
+    }
+
+    p {
+        font-size: 0.9em; /* Adjust paragraph font size for mobile */
+    }
+}

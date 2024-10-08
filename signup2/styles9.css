@@ -1,0 +1,170 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping for small screens */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+
+
+
+
+.hidden {
+    display: none; /* Hide the menu */
+}
+
+/* Style for the visible menu */
+nav {
+    display: block; /* Show the menu */
+    background-color:  #333; /* Optional background */
+    padding: 10px; /* Optional padding */
+}
+
+/* Additional styles for better presentation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input, form select, form button {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically on smaller screens */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Add margin between stacked items */
+    }
+
+    section {
+        margin: 10px; /* Reduce margin for sections on small screens */
+    }
+
+    form input, form select, form button {
+        padding: 8px; /* Slightly reduce padding in form elements */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.5em; /* Adjust header size for smaller screens */
+    }
+
+    section {
+        padding: 15px; /* Reduce padding for sections on very small screens */
+    }
+
+    form button {
+        font-size: 0.9em; /* Adjust button size for better touch targets */
+    }
+}
+

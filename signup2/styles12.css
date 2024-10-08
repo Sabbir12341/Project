@@ -1,0 +1,202 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: transparent;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #4CAF50;
+    color: white;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.profile h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+.profile p {
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: #111;
+}
+
+
+
+
+.hidden {
+    display: none; /* Hide the menu */
+}
+
+/* Style for the visible menu */
+nav {
+    display: block; /* Show the menu */
+    background-color:  #333; /* Optional background */
+    padding: 10px; /* Optional padding */
+}
+
+/* Additional styles for better presentation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.main-content {
+    background: url('KON.jpg') no-repeat center center/cover;
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: aqua;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.info-card {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+}
+
+.header h1 {
+    margin-top: 0;
+    font-size: 36px;
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.card p {
+    color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sidebar and main content vertically */
+    }
+
+    .sidebar {
+        width: 100%; /* Make sidebar full width on small screens */
+        height: auto; /* Adjust height for smaller screens */
+    }
+
+    .main-content {
+        padding: 10px; /* Reduce padding in the main content */
+    }
+
+    .info-section {
+        flex-direction: column; /* Stack info cards vertically */
+        align-items: center; /* Center align info cards */
+    }
+
+    .info-card {
+        margin-bottom: 20px; /* Add spacing between info cards */
+        width: 90%; /* Adjust card width */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 15px; /* Reduce padding in the sidebar */
+    }
+
+    .sidebar nav ul li a {
+        font-size: 16px; /* Adjust font size for links */
+    }
+
+    .header h1 {
+        font-size: 28px; /* Adjust header font size */
+    }
+
+    .card h2 {
+        font-size: 20px; /* Adjust card heading size */
+    }
+}

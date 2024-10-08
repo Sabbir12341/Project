@@ -1,0 +1,239 @@
+/* Existing styles */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#menu-icon{
+
+    align-items: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+
+
+
+
+
+
+
+.hidden {
+    display: none; /* Hide the menu */
+}
+
+/* Style for the visible menu */
+nav {
+    display: block; /* Show the menu */
+    background-color:  #333; /* Optional background */
+    padding: 10px; /* Optional padding */
+}
+
+/* Additional styles for better presentation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hero {
+    background: url('campus1.jpg') no-repeat center center/cover;
+    color: #fff;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h2 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.hero p {
+    margin: 1em 0;
+}
+
+.hero .btn {
+    background: #e8491d;
+    color: #fff;
+    padding: 0.7em 1.5em;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.container__title {
+    font-size: 4rem;
+    color: yellowgreen;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#alumni {
+    padding: 20px;
+    background-color: #e0e0e0;
+    text-align: center;
+}
+
+.alumni-member {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.alumni-member img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.alumni-member h3 {
+    margin: 10px 0 5px;
+}
+
+.alumni-member p {
+    margin: 0;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically */
+        align-items: center; /* Center nav items */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Add vertical spacing between nav items */
+    }
+
+    .hero {
+        height: 60vh; /* Adjust hero height for smaller screens */
+    }
+
+    .hero h2 {
+        font-size: 2em; /* Reduce font size for the hero heading */
+    }
+
+    .hero p {
+        font-size: 1em; /* Adjust paragraph size */
+    }
+
+    .container__title {
+        font-size: 3rem; /* Decrease container title size */
+    }
+
+    .alumni-member {
+        width: 150px; /* Adjust alumni member card width */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 50vh; /* Further adjust hero height for small screens */
+    }
+
+    .hero h2 {
+        font-size: 1.5em; /* Further reduce font size */
+    }
+
+    .hero .btn {
+        padding: 0.5em 1em; /* Adjust button padding */
+        font-size: 0.9em; /* Adjust button font size */
+    }
+
+    .container__title {
+        font-size: 2.5rem; /* Further decrease title size */
+    }
+
+    #alumni {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .alumni-member {
+        width: 100%; /* Make alumni member cards full width */
+        max-width: 300px; /* Limit max width */
+        margin: 10px auto; /* Center alumni member cards */
+    }
+}
+
+
+
+
+

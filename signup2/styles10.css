@@ -1,0 +1,181 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+
+
+
+
+
+.hidden {
+    display: none; /* Hide the menu */
+}
+
+/* Style for the visible menu */
+nav {
+    display: block; /* Show the menu */
+    background-color:  #333; /* Optional background */
+    padding: 10px; /* Optional padding */
+}
+
+/* Additional styles for better presentation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+.button_submit {
+    height: 20px;
+    width: 51px;
+    color: white;
+    background-color: red;
+    margin: 0 auto; 
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 9px;
+    padding-left: 9px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+main {
+    background: url('robo.jpg') no-repeat center center/cover;
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: white;
+    border-radius: 5px;
+    color: #111;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+h2 {
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.5em;
+    color: #555;
+}
+
+input, select {
+    margin-bottom: 1em;
+    padding: 0.5em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center; /* Center align items */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Add margin between items */
+    }
+
+    main {
+        margin: 1em; /* Reduce margin on smaller screens */
+        padding: 1em; /* Ensure padding remains consistent */
+    }
+
+    input, select {
+        font-size: 0.9em; /* Slightly reduce font size for inputs */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.5em; /* Adjust header font size */
+    }
+
+    h2 {
+        font-size: 1.3em; /* Adjust heading size */
+    }
+
+    footer {
+        font-size: 0.9em; /* Adjust footer font size */
+    }
+}

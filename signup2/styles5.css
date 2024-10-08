@@ -1,0 +1,211 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the page */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #090;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2em;
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+
+
+
+
+
+.hidden {
+    display: none; /* Hide the menu */
+}
+
+/* Style for the visible menu */
+nav {
+    display: block; /* Show the menu */
+    background-color:  #333; /* Optional background */
+    padding: 10px; /* Optional padding */
+}
+
+/* Additional styles for better presentation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hero {
+    background: url('uni2.jpg') no-repeat center center/cover;
+    color: #fff;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.activities {
+    padding: 20px 0;
+}
+
+.activities h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.event {
+    background-color: #000;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.event h3 {
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.event .date {
+    font-weight: bold;
+}
+
+.event .location {
+    font-style: italic;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em; /* Decrease header font size */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center; /* Center align */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Add vertical spacing between items */
+    }
+
+    .hero {
+        height: 100vh; /* Adjust hero height */
+    }
+
+    .activities h2 {
+        font-size: 1.4em; /* Decrease activities heading size */
+    }
+
+    .event {
+        padding: 10px; /* Adjust padding for events */
+    }
+
+    .event h3 {
+        font-size: 1.1em; /* Decrease event title size */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em; /* Further decrease header font size */
+    }
+
+    .activities h2 {
+        font-size: 1.2em; /* Further decrease activities heading size */
+    }
+
+    .event {
+        padding: 8px; /* Further adjust padding for events */
+    }
+
+    .event h3 {
+        font-size: 1em; /* Further decrease event title size */
+    }
+
+    footer {
+        padding: 8px 0; /* Adjust footer padding */
+    }
+}
