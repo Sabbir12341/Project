@@ -1,106 +1,13 @@
 <?php
 // Include your database connection
 include 'connect.php';
-    // $check_user_sql = "SELECT * FROM registration WHERE username LIKE 'search%'";
-    // $result = mysqli_query($con, $check_user_sql);
-
-    // if (mysqli_num_rows($result) > 0) {
-        
-    // } 
-
-
-
     if (isset($_POST['search'])) {
-        $searchTerm = $_POST['search']; 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+        $searchTerm = $_POST['search'];    
         $searchTerm = $con->real_escape_string($searchTerm);
         $sql = "SELECT * FROM registration WHERE username LIKE '%$searchTerm%'";
-
         $result = $con->query($sql);
-
-        
-
     }
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
