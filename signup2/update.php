@@ -85,10 +85,10 @@ else {
                         <label for="linkedin" class="block mb-1">LinkedIn Address:</label>
                         <input type="url" id="linkedin" name="linkedin"  class="border rounded w-full p-2 focus:outline-none focus:ring focus:border-blue-500" />
                     </div>
-                    <div>
+                    <!-- <div>
                         <label for="phone" class="block mb-1">Phone Number:</label>
                         <input type="tel" id="phone" name="phone" class="border rounded w-full p-2 focus:outline-none focus:ring focus:border-blue-500" />
-                    </div>
+                    </div> -->
                 </div>
             </section>
 
@@ -104,10 +104,10 @@ else {
                         <input type="number" id="year" name="Year" min="1900" max="2099" step="1"  class="border rounded w-full p-2 focus:outline-none focus:ring focus:border-blue-500" />
                     </div>
                 </div>
-                <div>
+                <!-- <div>
                     <label for="institution" class="block mb-1">Institution:</label>
                     <input type="text" id="institution" name="institution"  class="border rounded w-full p-2 focus:outline-none focus:ring focus:border-blue-500" />
-                </div>
+                </div> -->
             </section>
 
             <section class="mb-6">

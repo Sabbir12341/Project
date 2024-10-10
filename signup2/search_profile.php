@@ -69,30 +69,6 @@ include 'connect.php'; // Connect to the database
             <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
             <h2>Email: <?php echo htmlspecialchars($email); ?></h2>
         </div>
-        <div class="profile-content">
-            <a href="signup.php"><div class="btn_update">&nbsp; Update Profile</div></a>
-            <h2>Biography</h2>
-            <p><?php echo htmlspecialchars($message); ?></p>
-
-            <form action="profile.php" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="photo">Update image</label>
-                    <input type="file" name="photo" id="photo" accept="image/*" class="form-control">
-                </div>
-                <div class="form-group">
-                    <button type="submit">Update</button>
-                </div>
-            </form>
-
-
-
-            <h2>Post Something to the Newsfeed</h2>
-            <!-- Form to submit a post -->
-            <!-- <form method="POST" action="profile.php">
-                <textarea name="post" placeholder="What's on your mind?" rows="5" cols="40"></textarea><br>
-                <input type="submit" value="Post">
-            </form> -->
-
             <h2>Posts</h2>
             <!-- Display the user's previous posts -->
             <?php
