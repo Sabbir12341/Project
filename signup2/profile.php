@@ -7,6 +7,7 @@ include 'connect.php'; // Connect to the database
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     $username= $_SESSION['username'];
+    $_SESSION['r']=$user_id;
     // Handle the form submission for a new post
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post'])) {
         $postContent = $_POST['post'];
@@ -146,7 +147,7 @@ if (isset($_SESSION['user_id'])) {
             <h2>Email: <?php echo htmlspecialchars($email); ?></h2>
         </div>
         <div class="profile-content">
-            <a href="signup.php"><div class="btn_update">&nbsp; Update Profile</div></a>
+            <a href="update.php"><div class="btn_update">&nbsp; Update Profile</div></a>
             <h2>Biography</h2>
             <p><?php echo htmlspecialchars($message); ?></p>
 
