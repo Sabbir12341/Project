@@ -24,7 +24,7 @@
         // Fetch the row
         $row = mysqli_fetch_assoc($result);
         $userId = $row['id']; // Retrieve the id value
-
+        $username=$row['username'];
         //echo "login successful";
         $login=1;
         //$sql= "SELECT * FROM registration where email = '$email' and password='$password' ";
@@ -33,7 +33,7 @@
                          //directly log in without password as ur data is previously saved        
         //$_SESSION ['username']=$username;
         $_SESSION['user_id'] = $userId; // Store user id in session
-                
+        $_SESSION['username'] =$username;      
         // Echo the user id for debugging purposes (remove in production)
         echo "User ID: " . $userId;
 

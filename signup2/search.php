@@ -2,7 +2,7 @@
 // Include your database connection
 include 'connect.php';
     if (isset($_POST['search'])) {
-        $searchTerm = $_POST['search'];    
+        $searchTerm = $_POST['search'];
         $searchTerm = $con->real_escape_string($searchTerm);
         $sql = "SELECT * FROM registration WHERE username LIKE '%$searchTerm%'";
         $result = $con->query($sql);
@@ -28,11 +28,10 @@ include 'connect.php';
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 30px 40px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
-    .navbar h1 {
+.navbar h1 {
       color: white;
       margin: 0;
       font-size: 24px;
@@ -44,7 +43,7 @@ include 'connect.php';
       align-items: center;
       background-color: white;
       border-radius: 20px;
-      padding: 5px 10px;
+      padding: 3px 5px;
       border: 1px solid #ccc;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
@@ -114,7 +113,7 @@ include 'connect.php';
   </style>
 </head>
 <body>
-
+<i class="fas fa-bars fa-2x" id="menu-icon"></i>
   <!-- Navbar -->
   <div class="navbar">
     <h1>HSTU University Alumni</h1>
@@ -122,6 +121,20 @@ include 'connect.php';
       <input type="search" name="search" placeholder="Search again...">
       <button type="submit">&#128269;</button>
     </form>
+    <nav id="menu" class="hidden">
+        <ul>                  
+            <li><a href="1Home.php">Home</a></li>
+            <li><a href="newsfeed.php">Newsfeed</a></li>
+            <li><a href="2Admin.php">Admin</a></li>
+            <li><a href="About.php">About Us</a></li>
+            <li><a href="Event.php">Events</a></li>
+            <li><a href="contacts.php">Contact</a></li>
+            <li><a href="Contribute.php">Contribute</a></li>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="signup.php">Signup</a></li>
+        </ul> 
+    </nav>
   </div>
 
   <!-- Search Results -->
@@ -132,11 +145,16 @@ include 'connect.php';
         <?php 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                  //session_start();
+                        $userId = $row['id'];
                     echo "
 
                     <li>
                         <h3>".$row['username']."</h3>
                         <p>Email: ".$row['Email']."</p>
+                        <form action='search_profile.php' method='get'>
+                        <button tpye='submit' name='r' value=$userId>VIEW PROFILE</button>
+                        </form>
                     </li>
                     ";
                 }

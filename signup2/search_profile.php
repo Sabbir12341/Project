@@ -1,83 +1,10 @@
 <?php
-session_start(); // Start the session to use session variables
+//session_start(); // Start the session to use session variables
 
 include 'connect.php'; // Connect to the database
-
-// Check if the session is set and contains the user's id
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-    $username= $_SESSION['username'];
-    // Handle the form submission for a new post
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['post'])) {
-        $postContent = $_POST['post'];
-        
-        // Insert the post into the newsfeed table
-        $insertSql = "INSERT INTO posts (`title`, `description`, `user_id`) VALUES ('$username', '$postContent', '$user_id')";
-        $n = mysqli_query($con, $insertSql);
-        if ($n) {
-            echo "Post added successfully!";
-        } else {
-            echo "Error adding post: " . mysqli_error($con);
-        }
-    }
-
-    // Handle the deletion of a post
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_post_id'])) {
-        $delete_post_id = $_POST['delete_post_id'];
-        
-        // Delete the post from the database
-        $deleteSql = "DELETE FROM posts WHERE id = '$delete_post_id' AND user_id = '$user_id'";
-        $n = mysqli_query($con, $deleteSql);
-        if ($n) {
-            echo "Post deleted successfully!";
-        } else {
-            echo "Error deleting post: " . mysqli_error($con);
-        }
-    }
-
-    //Handle Image upload
-    if (isset($_FILES['photo'])) {
-        $targetDir = "uploads/image-upload/";
-        
-        // File details
-        $fileName = basename($_FILES["photo"]["name"]);
-        $targetFilePath = $targetDir . $fileName;
-        $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
-    
-        // Check if file was uploaded
-        if (!empty($_FILES["photo"]["name"])) {
-            // Allow certain file formats (optional)
-            $allowedTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
-            if (in_array($fileType, $allowedTypes)) {
-                // Upload file to server
-                if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFilePath)) {
-                    $sql = "UPDATE registration SET photo = ? WHERE id = ?";
-                    $stmt = $con->prepare($sql);
-                    $stmt->bind_param("si", $targetFilePath, $user_id);
-            
-                    if ($stmt->execute()) {
-                        echo "The file " . htmlspecialchars($fileName) . " has been uploaded and saved to the database.";
-                    } else {
-                        echo "Failed to save the file in the database.";
-                    }
-                
-                    // Close the statement
-                    $stmt->close();
-                
-                } else {
-                    echo "Sorry, there was an error uploading your file.";
-                }
-            } else {
-                echo "Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed.";
-            }
-        } else {
-            echo "Please select a file to upload.";
-        }
-    }
-
-
-    
     // Query to get the username and email based on the user_id
+    
+        $user_id = $_GET['r'];
     $sql = "SELECT username, email, photo,message FROM registration WHERE id = '$user_id'";
     $result = mysqli_query($con, $sql);
 
@@ -92,10 +19,7 @@ if (isset($_SESSION['user_id'])) {
         echo "Error fetching user data: " . mysqli_error($con);
         exit;
     }
-} else {
-    echo "No user is logged in.";
-    exit;
-}
+//session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -164,10 +88,10 @@ if (isset($_SESSION['user_id'])) {
 
             <h2>Post Something to the Newsfeed</h2>
             <!-- Form to submit a post -->
-            <form method="POST" action="profile.php">
+            <!-- <form method="POST" action="profile.php">
                 <textarea name="post" placeholder="What's on your mind?" rows="5" cols="40"></textarea><br>
                 <input type="submit" value="Post">
-            </form>
+            </form> -->
 
             <h2>Posts</h2>
             <!-- Display the user's previous posts -->

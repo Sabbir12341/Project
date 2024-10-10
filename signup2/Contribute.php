@@ -16,7 +16,7 @@
             margin-right: 20px;
             position: fixed;
             right: 0;
-            top: 20px;
+            top: 60px;
         }
 
         .search-box {
@@ -25,8 +25,8 @@
             background-color: white;
             border-radius: 20px;
             border: 2px solid #ccc;
-            padding: 5px 15px;
-            width: 300px;
+            padding: 2px 15px;
+            width: 200px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             background-color: #f4fdf4;
         }

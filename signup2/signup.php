@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email =  $_POST['email'];
     $password =  $_POST['password'];
     $confirm_password = $_POST['c_password'];
-    
+    $message=$_POST['message'];
 
 
     if (isset($_POST['photo'])) {
@@ -35,10 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed.";
             }
     }
-    
-
-
-
     // Check if the user already exists
     $check_user_sql = "SELECT * FROM registration WHERE email='$email'";
     $result = mysqli_query($con, $check_user_sql);
@@ -48,36 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else if ($password !== $confirm_password) {
         $invalid = 1; // Passwords don't match
     } else {
-        // Hash the password before storing
-        // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-        // Insert the new user into the 'registration' table
-        $sql = "INSERT INTO registration (username, email, password) VALUES ('$username', '$email', '$password')";
-
-        if (mysqli_query($con, $sql)) {
-            // Get the last inserted user ID
-            $user_id = mysqli_insert_id($con);
-
-            // Create a new table for this user
-            $table_name = "user_{$user_id}_data"; // Table name is user-specific, using the user ID for uniqueness
-
-            // SQL to create a user-specific table
-            $create_table_sql = "CREATE TABLE `$table_name` (
-                id INT(11) AUTO_INCREMENT PRIMARY KEY,
-                title VARCHAR(255) NOT NULL,
-                content TEXT NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )";
-
-            // Execute the query to create the table
-            if (mysqli_query($con, $create_table_sql)) {
-                $success = 1; // Success
-            } else {
-                echo "Error creating user table: " . mysqli_error($con);
-            }
-        } else {
-            echo "Error registering user: " . mysqli_error($con);
-        }
+        $sql = "INSERT INTO registration (username, email, password,message) VALUES ('$username', '$email', '$password','$message')";
     }
 }
 ?>
