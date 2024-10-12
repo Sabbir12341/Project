@@ -38,6 +38,7 @@
             <!-- <li><a href="update.html">Update</a></li> -->
             <!-- <li> <a href="Forgate.html">Forgate</a></li> -->
             <li><a href="signup.php">Signup</a></li>
+            <li><a href="Demo.php">Demo</a></li>
         </ul> 
     </nav>
 
