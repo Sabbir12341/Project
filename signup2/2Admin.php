@@ -1,8 +1,4 @@
-<?php
-require 'db.php';
-require 'add_alumni.php';
-require 'fetch_alumni.php';
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
