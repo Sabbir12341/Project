@@ -4,7 +4,7 @@ include 'connect.php';
     if (isset($_POST['search'])) {
         $searchTerm = $_POST['search'];
         $searchTerm = $con->real_escape_string($searchTerm);
-        $sql = "SELECT * FROM registration WHERE username LIKE '%$searchTerm%'";
+        $sql = "SELECT * FROM registration WHERE username LIKE '%$searchTerm%' or Year like '%$searchTerm%' or Degree LIKE '%$searchTerm%'";
         $result = $con->query($sql);
     }
 ?>
