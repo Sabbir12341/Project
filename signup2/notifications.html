@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Notifications</title>
+    <style>
+        .notification {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .notification button {
+            padding: 5px 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .notification button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align: center;">Admin Notifications for post approval</h2>
+<div id="adminNotifications">
+    <!-- Notifications will be dynamically added here -->
+</div>
+
+<script>
+    const postsPendingApproval = [
+        { id: 1, content: "This is a user's first post", status: 'pending' },
+        { id: 2, content: "Another user post awaiting approval", status: 'pending' }
+    ];
+
+    function loadAdminNotifications() {
+        const adminNotificationsDiv = document.getElementById('adminNotifications');
+
+        postsPendingApproval.forEach(post => {
+            const notification = document.createElement('div');
+            notification.classList.add('notification');
+            notification.innerHTML = `
+                <span>${post.content}</span>
+                <button onclick="approvePost(${post.id})">Approve</button>
+            `;
+            adminNotificationsDiv.appendChild(notification);
+        });
+    }
+
+    function approvePost(postId) {
+        alert(`Post ID: ${postId} approved.`);
+
+        // Update the post's status in the backend (via an API call)
+        const postIndex = postsPendingApproval.findIndex(post => post.id === postId);
+        postsPendingApproval[postIndex].status = 'approved';
+
+        // Refresh the admin notifications list (or dynamically remove the post)
+        document.getElementById('adminNotifications').innerHTML = ''; // Clear
+        loadAdminNotifications(); // Reload
+    }
+
+    window.onload = loadAdminNotifications;
+</script>
+
+</body>
+</html>
