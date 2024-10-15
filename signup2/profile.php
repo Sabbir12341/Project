@@ -2,6 +2,10 @@
 session_start(); // Start the session to use session variables
 
 include 'connect.php'; // Connect to the database
+echo "jahins";
+echo "asd";
+
+//random as 
 
 // Check if the session is set and contains the user's id
 if (isset($_SESSION['user_id'])) {
