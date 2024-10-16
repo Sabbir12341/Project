@@ -3,7 +3,26 @@
 session_start();
 include 'connect.php';
 
-// Query to fetch news from the database
+// Check if a post is being approved or rejected
+if (isset($_GET['post_id'])) {
+    $post_id = $_GET['post_id'];
+    // $action=$_GET['action'];
+    if (isset($_GET['action']) && $_GET['action'] == 'approve') {
+        // Approve the post
+        $sql = "UPDATE posts SET status='approved',approval_time=date('Y-m-d H:i:s') WHERE id='$post_id'";
+        mysqli_query($con, $sql);
+    } elseif (isset($_GET['action']) && $_GET['action'] == 'reject') {
+        // Reject the post
+        $sql = "UPDATE posts SET status='rejected' WHERE id='$post_id'";
+        mysqli_query($con, $sql);
+    }
+//   $_SESSION['post_id']=$post_id;
+    // Redirect to avoid resubmission on refresh
+    header('Location: notifications.php');
+    exit();
+}
+
+// Fetch pending posts
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     $sql = "SELECT p.*, r.username 
@@ -11,7 +30,6 @@ if (isset($_SESSION['user_id'])) {
         JOIN registration AS r 
         ON p.user_id = r.id 
         ORDER BY p.created_at DESC";
-  // Replace 'news' with your actual table name
     $result = mysqli_query($con, $sql);
 
     $newsData = array();
@@ -24,14 +42,14 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsfeed</title>
-    <link rel="stylesheet" href="newsfeed.css">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="notifications.css">
 </head>
 
 <body>
     <i class="fas fa-bars fa-2x" id="menu-icon"></i>
     <header>
-        <h1>Hajee Mohammad Danesh Science & Technology University Alumni</h1>
+        <h1>Admin Notifications for post approval</h1>
     </header>
 
     <nav id="menu" class="hidden">
@@ -50,23 +68,39 @@ if (isset($_SESSION['user_id'])) {
     </nav>
 
     <br>
-    <div class="newsfeed-container">
-        <h1>Latest News</h1>
-        <ul id="newsfeed" class="newsfeed">
+    <div class="notification-container">
+        <h1 >Latest Pending</h1>
+        <ul id="notification" class="notification">
             <?php
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $newsData[]=$row;
-                        echo "<li>
+                       if($row['status']!='rejected' and $row['status']!='approved') echo "<li>
+                        <div class='post-content'>
                             <h2>".$row['title']."</h2>
                             <p>".$row['description']."</p>
-                            <p>Posted By: ".$row['username'] ."</p>
+                            <p>Pending From: ".$row['created_at'] ."</p>
+                        </div>
+                        <br>
+                            <div class='approve-btn-container'>
+    <form method='GET' action='notifications.php'>
+        <input type='hidden' name='post_id' value='{$row['id']}'>
+        <button type='submit'  name='action' value='approve' class='btn btn-success'>Approve</button>
+    </form>
+    <br>
+    <form method='GET' action='notifications.php' style='display:inline-block;'>
+        <input type='hidden' name='post_id' value='{$row['id']}'>
+        <button type='submit' name='action' value='reject' class='btn btn-danger'>Reject</button>
+    </form>
+</div>
+
                         </li>";
                     }
                 }
             ?>
         </ul>
     </div>
+
 </body>
 
 </html>

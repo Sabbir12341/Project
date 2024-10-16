@@ -39,9 +39,7 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #111;
 }
-
-/* Newsfeed Container */
-.newsfeed-container {
+.notification-container {
     max-width: 800px;
     margin: auto;
     padding: 20px;
@@ -50,19 +48,18 @@ nav ul li a:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px; /* Added margin for spacing */
 }
-
-.newsfeed-container h1 {
+.notification-container h1 {
     font-size: 2rem;
     color: #4CAF50; /* Matching the header color */
     text-align: center;
     margin-bottom: 20px;
 }
-.newsfeed {
+.notification {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.newsfeed li {
+.notification li {
     margin-bottom: 20px;
     padding: 15px;
     background-color: #fafafa;
@@ -70,16 +67,47 @@ nav ul li a:hover {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.newsfeed li h2 {
+.notification li h2 {
     margin: 0 0 10px;
     font-size: 1.5rem;
     color: #333;
 }
-
-.newsfeed li p {
+.notification li p {
     margin: 0;
     line-height: 1.6;
     color: #555;
+}
+.post-content {
+    flex: 1;
+}
+
+.action-btn-container {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
 }
 /* Footer */
 footer {
@@ -92,29 +120,29 @@ footer {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .newsfeed-container {
+    .notification-container {
         padding: 15px;
     }
 
-    .newsfeed li {
+    .notification li {
         padding: 10px;
     }
 
-    .newsfeed li h2 {
+    .notification li h2 {
         font-size: 1.3rem;
     }
 }
 
 @media (max-width: 480px) {
-    .newsfeed-container {
+    .notification {
         padding: 10px;
     }
 
-    .newsfeed li {
+    .notification li {
         padding: 8px;
     }
 
-    .newsfeed li h2 {
+    .notification li h2 {
         font-size: 1.2rem;
     }
 }

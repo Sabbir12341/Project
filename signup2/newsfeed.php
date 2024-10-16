@@ -4,13 +4,14 @@ session_start();
 include 'connect.php';
 
 // Query to fetch news from the database
+//  $post_id=$_GET['post_id'];
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
     $sql = "SELECT p.*, r.username 
         FROM posts AS p 
         JOIN registration AS r 
         ON p.user_id = r.id 
-        ORDER BY p.created_at DESC";
+        ORDER BY p.approval_time DESC";
   // Replace 'news' with your actual table name
     $result = mysqli_query($con, $sql);
 
@@ -57,7 +58,7 @@ if (isset($_SESSION['user_id'])) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $newsData[]=$row;
-                        echo "<li>
+                        if($row['status']==='approved')echo "<li>
                             <h2>".$row['title']."</h2>
                             <p>".$row['description']."</p>
                             <p>Posted By: ".$row['username'] ."</p>

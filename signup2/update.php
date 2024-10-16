@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $degree = $_POST['Degree'];
     $message=$_POST['message'];
     $sql = "Update registration set username='$username',Email='$email',Year='$year',Degree='$degree',message='$message' where id='$user_id'";
+    $update_post_title="Update posts set title='$username' where user_id='$user_id'";
+    $result=mysqli_query($con, $update_post_title);
     $result = mysqli_query($con, $sql);
 }
 }

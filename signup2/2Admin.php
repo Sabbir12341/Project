@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
-   
     <div class="flex flex-col md:flex-row">
         <!-- Sidebar -->
         <nav class="w-full md:w-64 bg-white shadow-lg md:h-screen p-5">
@@ -33,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#notifications" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-blue-100 transition">
+                    <a href="notifications.php" class="flex items-center p-3 rounded-lg text-gray-700 hover:bg-blue-100 transition">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405 1.405A2.5 2.5 0 0116 22h-8a2.5 2.5 0 01-2.595-2.595L4 17h5m0 0v-6a6 6 0 00-6-6m0 0h12"/>
                         </svg>
