@@ -1,4 +1,11 @@
-
+<?php
+session_start();
+include'connect.php';
+ $i=$_SESSION['notifications'];
+$sql = "SELECT * FROM registration";
+    $result = mysqli_query($con, $sql);
+    $row=mysqli_num_rows($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,15 +84,15 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="bg-blue-100 p-4 rounded-lg shadow">
                     <h3 class="font-bold text-blue-600">Total Alumni</h3>
-                    <p class="text-2xl">1,200</p>
+                    <p class="text-2xl"><?php echo"$row" ?></p>
                 </div>
                 <div class="bg-green-100 p-4 rounded-lg shadow">
                     <h3 class="font-bold text-green-600">Recent Registrations</h3>
-                    <p class="text-2xl">15</p>
+                    <p class="text-2xl">5</p>
                 </div>
                 <div class="bg-yellow-100 p-4 rounded-lg shadow">
                     <h3 class="font-bold text-yellow-600">Notifications</h3>
-                    <p class="text-2xl">8</p>
+                    <p class="text-2xl"><?php echo"$i" ?></p>
                 </div>
             </div>
 
@@ -93,11 +100,12 @@
                 <h2 class="text-2xl font-semibold mb-4">Alumni Management</h2>
 
                 <!-- Search and Filter -->
+                 <form action="search.php" method="POST">
                 <div class="flex flex-col md:flex-row items-center mb-4">
-                    <input type="text" placeholder="Search Alumni..." class="border rounded-lg p-2 flex-1" />
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg md:ml-2 mt-2 md:mt-0">Search</button>
+                    <input type="text" id="search"name="search" placeholder="Search Alumni..." class="border rounded-lg p-2 flex-1" />
+                    <button type="submit"  class="bg-blue-600 text-white px-4 py-2 rounded-lg md:ml-2 mt-2 md:mt-0">Search</button>
                 </div>
-
+                </form>
                 <!-- Add New Alumni Button -->
                 <button class="bg-blue-600 text-white px-4 py-2 rounded-lg mb-4 transition hover:bg-blue-500">Add New Alumni</button>
                 

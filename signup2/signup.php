@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <ul>
             <li><a href="1Home.php">Home</a></li>
             <li><a href="newsfeed.php">Newsfeed</a></li>
-            <li><a href="2Admin.php">Admin</a></li>
+            <li><a href="admin_login.php">Admin</a></li>
             <li><a href="About.php">About Us</a></li>
             <li><a href="Event.php">Events</a></li>
             <li><a href="contacts.php">Contact</a></li>

@@ -2,7 +2,7 @@
 // Include your database connection
 session_start();
 include 'connect.php';
-
+$i=0;
 // Check if a post is being approved or rejected
 if (isset($_GET['post_id'])) {
     $post_id = $_GET['post_id'];
@@ -56,7 +56,7 @@ if (isset($_SESSION['user_id'])) {
         <ul>
             <li><a href="1Home.php">Home</a></li>
             <li><a href="newsfeed.php">Newsfeed</a></li>
-            <li><a href="2Admin.php">Admin</a></li>
+            <!-- <li><a href="2Admin.php">Admin</a></li> -->
             <li><a href="About.php">About Us</a></li>
             <li><a href="Event.php">Events</a></li>
             <li><a href="contacts.php">Contact</a></li>
@@ -75,7 +75,7 @@ if (isset($_SESSION['user_id'])) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $newsData[]=$row;
-                       if($row['status']!='rejected' and $row['status']!='approved') echo "<li>
+                       if($row['status']!='rejected' and $row['status']!='approved') {echo "<li>
                         <div class='post-content'>
                             <h2>".$row['title']."</h2>
                             <p>".$row['description']."</p>
@@ -95,8 +95,11 @@ if (isset($_SESSION['user_id'])) {
 </div>
 
                         </li>";
+                       $i++;
+                       }
                     }
                 }
+                $_SESSION['notifications']=$i;
             ?>
         </ul>
     </div>
