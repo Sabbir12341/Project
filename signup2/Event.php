@@ -2,7 +2,7 @@
 session_start(); // Ensure session_start is called before any output
 include'connect.php';
 $date=$_SESSION['event_date'];
-$sql="SELECT date,message,event from event_update where date='$date'";
+$sql="SELECT date,message,event from event_update";
 $result=mysqli_query($con,$sql);
 ?>
 <!DOCTYPE html>
@@ -59,9 +59,11 @@ $result=mysqli_query($con,$sql);
                     <?php 
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
-                    if($row['event']=='sports')echo"<p class='event-date'>Date: {$row['date']}</p>
+                    if($row['event']=='sports'){echo"<p class='event-date'>Date: {$row['date']}</p>
                         <p class='event-description'>{$row['message']}</p>
                         <a href='sports.php' class='btn'>Register</a>";
+                        break;
+                    }
                         }
                     }
                     ?>
@@ -74,9 +76,11 @@ $result=mysqli_query($con,$sql);
                     <?php
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
-                    if($row['event']=='cultural')echo"<p class='event-date'>Date:{$row['date']}</p>
+                    if($row['event']=='cultural'){echo"<p class='event-date'>Date:{$row['date']}</p>
                         <p class='event-description'>{$row['message']}</p>
                         <a href='cultural.php' class='btn'>Register</a>";
+                        break;
+                    }
                         }
                     }
                     ?>
