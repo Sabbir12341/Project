@@ -10,11 +10,11 @@ if (isset($_GET['post_id'])) {
     if (isset($_GET['action']) && $_GET['action'] == 'approve') {
         // Approve the post
         $sql = "UPDATE posts SET status='approved',approval_time=date('Y-m-d H:i:s') WHERE id='$post_id'";
-        mysqli_query($con, $sql);
+       $result= mysqli_query($con, $sql);
     } elseif (isset($_GET['action']) && $_GET['action'] == 'reject') {
         // Reject the post
         $sql = "UPDATE posts SET status='rejected' WHERE id='$post_id'";
-        mysqli_query($con, $sql);
+       $result= mysqli_query($con, $sql);
     }
 //   $_SESSION['post_id']=$post_id;
     // Redirect to avoid resubmission on refresh

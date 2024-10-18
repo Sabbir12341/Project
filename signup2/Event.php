@@ -1,3 +1,10 @@
+<?php
+session_start(); // Ensure session_start is called before any output
+include'connect.php';
+$date=$_SESSION['event_date'];
+$sql="SELECT date,message,event from event_update where date='$date'";
+$result=mysqli_query($con,$sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,41 +54,33 @@
         <div class="container">
            <marquee class="container__title"  behavior="" direction=""><h2>Upcoming Events</h2></marquee> 
             <div class="event">
-                <div class="event-image">
-                    <img src="Concert.jpg" alt="Event 1">
-                </div>
                 <div class="event-details">
                     <h3>Sports</h3>
-                    <p class="event-date">Date: July 20, 2024</p>
-                    <p class="event-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed elit sagittis, suscipit ligula id, consectetur est.</p>
-                    <a href="CSE.html" class="btn">Learn More</a>
+                    <?php 
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                    if($row['event']=='sports')echo"<p class='event-date'>Date: {$row['date']}</p>
+                        <p class='event-description'>{$row['message']}</p>
+                        <a href='sports.php' class='btn'>Register</a>";
+                        }
+                    }
+                    ?>
                     <!-- <a href="CSE.html">Learn more</a> -->
                 </div>
             </div>
             <div class="event">
-                <div class="event-image">
-                    <img src="friends.jpg" alt="Event 2">
-                </div>
                 <div class="event-details">
                     <h3>Cultural events</h3>
-                    <p class="event-date">Date: August 5, 2024</p>
-                    <p class="event-description">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer in enim sodales, aliquet velit vitae, vulputate orci.</p>
-                    <a href="CSE.html" class="btn">Learn More</a>
-                    <!-- <a href="CSE1.html">Learn more</a> -->
+                    <?php
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                    if($row['event']=='cultural')echo"<p class='event-date'>Date:{$row['date']}</p>
+                        <p class='event-description'>{$row['message']}</p>
+                        <a href='cultural.php' class='btn'>Register</a>";
+                        }
+                    }
+                    ?>
                 </div>
-
-
-                <!-- ekhane upcoming events nam e ekta div khola lagbe, cut css er design change hoye jaitese -->
-
-                <!-- <div >
-                    <h3>Cultural events</h3>
-                    <p>Date: August 5, 2024</p>
-                    <p class="">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer in enim sodales, aliquet velit vitae, vulputate orci.</p>
-                    <a href="CSE.html" class="btn">Learn More</a>
-                    
-                </div> -->
-
-
                 </div>                
             </div>
         </div>

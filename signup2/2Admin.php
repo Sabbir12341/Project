@@ -137,7 +137,9 @@
             <!-- Events Management Section -->
             <div id="events" class="mt-8">
                 <h2 class="text-2xl font-semibold mb-4">Events Management</h2>
+                <a href="admin_post.php">
                 <button class="bg-blue-600 text-white px-4 py-2 rounded-lg mb-4 transition hover:bg-blue-500">Create New Event</button>
+                </a>
                 <table class="min-w-full bg-white rounded-lg shadow">
                     <thead>
                         <tr class="bg-gray-200">

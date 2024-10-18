@@ -1,3 +1,4 @@
+
 <?php
 session_start(); // Start the session to use session variables
 
@@ -9,18 +10,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $user_id = $_SESSION['user_id'];
         $username = $_SESSION['username'];
-        $sports = $_POST['sport'];
-        $email = $_POST['email'];
+        $cultural=$_POST['cultural_event'];
+        $email=$_POST['email'];
         echo "Registration completed successfully";
-        
-        // Insert into the events table for the sports category
-        $sql = "INSERT INTO events (username, email, event, user_id) VALUES ('$username', '$email', '$sports', '$user_id')";
-        $result = mysqli_query($con, $sql);
+        $sql="insert into events (username,email,event,user_id) VALUES ('$username', '$email','$cultural', '$user_id')";       
+        $result=mysqli_query($con,$sql);
 
-        // Error handling if needed
-        if (!$result) {
-            echo "Registration failed: " . mysqli_error($con);
-        }
+        // if ($result) {
+        //     while ($row = mysqli_fetch_assoc($result)) {
+        //         // Process the result as needed
+        //         echo "Username: " . $row['username'] . ", Football: " . $row['football'] . ", Cricket: " . $row['cricket'];
+        //     }
+        // } else {
+        //     echo "Error fetching records: " . mysqli_error($con);
+        //     exit;
+        // }
 
     } else {
         echo "No user is logged in.";
@@ -28,13 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSTU Alumni Sports Event</title>
+    <title>HSTU Alumni Cultural Programme</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
     <style>
         body {
@@ -45,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: #333;
         }
         header {
-            background-color: #1E88E5;
+            background-color: #6A1B9A;
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -55,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 2em;
         }
         nav {
-            background-color: #1565C0;
+            background-color: #4A148C;
             padding: 10px;
             text-align: center;
         }
@@ -80,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin: 20px;
         }
         h2 {
-            color: #1565C0;
+            color: #4A148C;
             margin-bottom: 10px;
         }
         p {
@@ -110,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 4px;
         }
         #register button {
-            background-color: #1565C0;
+            background-color: #4A148C;
             color: white;
             padding: 10px;
             border: none;
@@ -122,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-color: #ff4081;
         }
         footer {
-            background-color: #1565C0;
+            background-color: #4A148C;
             color: white;
             text-align: center;
             padding: 15px;
@@ -136,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             top: 20px;
             left: 20px;
             cursor: pointer;
-            color: #1565C0;
+            color: #4A148C;
             display: none;
         }
         /* Mobile responsive */
@@ -158,11 +161,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <i class="fas fa-bars fa-2x" id="menu-icon"></i>
     <header>
-        <h1>Hajee Mohammad Danesh Science & Technology University Alumni Sports Event</h1>
+        <h1>Hajee Mohammad Danesh Science & Technology University Alumni Cultural Programme</h1>
     </header>
-
+   
     <nav id="menu" class="hidden">
-        <ul>
+        <ul>                  
             <li><a href="1Home.php">Home</a></li>
             <li><a href="newsfeed.php">Newsfeed</a></li>
             <li><a href="2Admin.php">Admin</a></li>
@@ -173,22 +176,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <li><a href="profile.php">Profile</a></li>
             <li><a href="login.php">Login</a></li>
             <li><a href="signup.php">Signup</a></li>
-        </ul>
+        </ul> 
     </nav>
 
     <section id="home">
-        <h2>Welcome to the HSTU Alumni Sports Event</h2>
-        <p>Join us for an exciting day of sports and friendly competition.</p>
+        <h2>Welcome to the HSTU Alumni Cultural Programme</h2>
+        <p>Join us for a day of artistic performances and cultural celebrations.</p>
     </section>
 
     <section id="events">
         <h2>Events</h2>
         <ul>
-            <li>Football</li>
-            <li>Basketball</li>
-            <li>Cricket</li>
-            <li>Badminton</li>
-            <li>Table Tennis</li>
+            <li>Drama</li>
+            <li>Singing</li>
+            <li>Dancing</li>
+            <li>Poetry</li>
+            <li>Instrumental Music</li>
         </ul>
     </section>
 
@@ -198,21 +201,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
 
     <section id="register">
-        <h2>Register for Sports Events</h2>
-        <form action="sports.php" method="POST">
+        <h2>Register for Cultural Events</h2>
+        <form action="cultural.php" method="POST">
             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
-            <input type="hidden" name="username" value="<?php echo $_SESSION['username']; ?>">
-
+            <input type="hidden" name="username" value="<?php echo $_SESSION['username']; ?>"> 
+            
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="sport">Sport:</label>
-            <select id="sport" name="sport" required>
-                <option value="football">Football</option>
-                <option value="basketball">Basketball</option>
-                <option value="cricket">Cricket</option>
-                <option value="badminton">Badminton</option>
-                <option value="table_tennis">Table Tennis</option>
+            <label for="cultural_event">Cultural Event:</label>
+            <select id="cultural_event" name="cultural_event" required>
+                <option value="drama">Drama</option>
+                <option value="singing">Singing</option>
+                <option value="dancing">Dancing</option>
+                <option value="poetry">Poetry</option>
+                <option value="instrumental_music">Instrumental Music</option>
             </select>
 
             <button type="submit">Register</button>
@@ -221,7 +224,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <section id="contact">
         <h2>Contact Us</h2>
-        <p>Email: info@hstu-sports-event.com</p>
+        <p>Email: info@hstu-cultural-event.com</p>
         <p>Phone: +880 1234 567890</p>
     </section>
 
@@ -236,6 +239,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         menuIcon.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
-    </script>
+    </script> 
 </body>
 </html>
