@@ -6,13 +6,13 @@
 ---
 
 ### Submitted by:
-**Name**: [Khandokar Sabbir Ahmed]  
-**ID**: [2002063]  
+**Name**: Khandokar Sabbir Ahmed 
+**ID**: 2002063  
 **Level**: 4, Semester: 2  
 **Hajee Mohammad Danesh Science & Technology University**
 
 ### Submitted to:
-**[Pankaj Bhowmik]**  
+**Pankaj Bhowmik**  
 Lecturer  
 Department of Computer Science and Engineering  
 Hajee Mohammad Danesh Science & Technology University
