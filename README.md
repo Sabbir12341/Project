@@ -61,7 +61,6 @@ Bangladesh’s legal landscape around digital issues is evolving but faces signi
 - Insufficient resources for investigating and prosecuting cybercrimes.
 - Emphasis on security over individual rights.
 
----
 
 ## COUNTRY SELECTION FOR CYBERLAW ANALYSIS
 
@@ -73,7 +72,6 @@ Based on the World Happiness Report (2025), which considers GDP, health, freedom
 - **Switzerland** (Rank 9): High standards of living, effective cyber coordination.
 - **United States** (Rank 24): Tech innovation, sectoral cyber laws, civil liberties debates.
 
----
 
 ## COMPARATIVE ANALYSIS OF CYBER LAWS
 
@@ -88,7 +86,6 @@ A comparative table summarizes how Bangladesh stands against these countries on 
 | Switzerland  | FADP, GDPR-aligned           | National Cybersecurity Centre (NCSC)    | Comprehensive, adaptive              | Adaptive programs          | Balanced security & liberty      | Federal & cantonal training              |
 | USA          | Sectoral laws (HIPAA, etc.)  | CISA leads coordination                 | CFAA, ECPA, etc.                     | Strong campaigns, mixed    | Strong but debated               | High investment in training              |
 
----
 
 ## PROPOSED LEGAL REFORMS FOR BANGLADESH
 
@@ -134,15 +131,11 @@ Drawing from global best practices, two new legislative proposals are recommende
 - Judicial safeguards and fair processes.
 - Fostering a safe, creative, and open digital environment.
 
----
-
 ## CONCLUSION
 
 Bangladesh stands at a crossroads in its digital journey. By learning from successful models in other nations, it can enact reforms that balance security and freedom, foster digital trust, and protect individual rights. The proposed acts—National Digital Security and Accountability Act and the Cyber Freedom and Rights Protection Act—offer a blueprint for a resilient and inclusive digital future.
 
 Collaboration among government, technical experts, civil society, and the wider public is essential to ensure these reforms are effective and widely supported.
-
----
 
 ## REFERENCES
 
@@ -163,7 +156,3 @@ Collaboration among government, technical experts, civil society, and the wider 
 15. Netherlands National Cyber Security Centre. (2025).
 16. Swedish Civil Contingencies Agency (MSB). (2023, 2024).
 17. Federal Cybersecurity and Data Privacy Laws Directory.
-
----
-
-> _Replace bracketed placeholders (e.g., [Your Name Here]) with your own details before submission._
